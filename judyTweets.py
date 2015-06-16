@@ -79,7 +79,7 @@ def post_it():
         shelfFile = shelve.open('judyQuotesList')
         quote = shelfFile['quotes'][currentQuote()]
         if len(quote) > 140:
-            numtwts = round((len(quote)/140) + 0.5)     # determines the number of tweets needed to post whole quote. Note: ceil fxn rounds up
+            numtwts = round((len(quote)/140) + 0.5)     # determines the number of tweets needed to post whole quote. adding 0.5 to len(quote)/140 rounds up to nearest whole number
             for i in range(0, numtwts+1):
                 snip = quote[((i-1)*140):min(len(quote)+1, i*140)]
                 tweet(snip)
