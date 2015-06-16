@@ -1,5 +1,3 @@
-# Look at me!
-
 #! python3
 # judyTweets.py - scrapes judge judy quotes from IMDB and saves them as shelf file
     # tweets one quote daily at 9am to your twitter account
