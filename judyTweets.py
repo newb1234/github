@@ -58,12 +58,11 @@ def currentQuote():
 
 # determines if it is time to post a new tweet
 def time_to_post():
-    # now = datetime.datetime.now()
-    # if now.hour == 9 and now.second == 0 and now.microsecond == 0 :
-    #     return True
-    # else:
-    #     return False
-    return True
+    now = datetime.datetime.now()
+    if now.hour == 9 and now.second == 0 and now.microsecond == 0 :
+        return True
+    else:
+        return False
 
 # posts string to twitter
 def tweet(string):
