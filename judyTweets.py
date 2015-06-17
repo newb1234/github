@@ -58,11 +58,12 @@ def currentQuote():
 
 # determines if it is time to post a new tweet
 def time_to_post():
-    now = datetime.datetime.now()
-    if now.hour == 9:
-        return True
-    else:
-        return False
+    # now = datetime.datetime.now()
+    # if now.hour == 9 and now.second == 0 and now.microsecond == 0 :
+    #     return True
+    # else:
+    #     return False
+    return True
 
 # posts string to twitter
 def tweet(string):
@@ -79,8 +80,8 @@ def post_it():
         shelfFile = shelve.open('judyQuotesList')
         quote = shelfFile['quotes'][currentQuote()]
         if len(quote) > 140:
-            numtwts = round((len(quote)/140) + 0.5)     # determines the number of tweets needed to post whole quote. adding 0.5 to len(quote)/140 rounds up to nearest whole number
-            for i in range(0, numtwts+1):
+            numtwts = math.ceil(len(quote)/140)     # determines the number of tweets needed to post whole quote. math.ceil() rounds up
+            for i in range(1, numtwts+1):
                 snip = quote[((i-1)*140):min(len(quote)+1, i*140)]
                 tweet(snip)
         else:
